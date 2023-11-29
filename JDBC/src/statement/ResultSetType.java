@@ -1,11 +1,11 @@
-package test;
+package statement;
 
-import java.math.BigDecimal;
 import java.sql.*;
 
 public class ResultSetType extends ConnectMySQL{
     public static void main(String[] args) {
         try{
+            Connection connection = ConnectMySQL.getConnection();
 
             // Tạo Statement với TYPE_SCROLL_SENSITIVE
             Statement insensitiveStatement = connection.createStatement(

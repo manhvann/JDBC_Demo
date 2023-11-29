@@ -1,15 +1,13 @@
-package test;
+package statement;
 
 import java.math.BigDecimal;
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class ResultSetConcurrency extends ConnectMySQL{
     public static void main(String[] args) {
 
         try {
+            Connection connection = ConnectMySQL.getConnection();
             DatabaseMetaData dbmd = connection.getMetaData();
             boolean isSupported = dbmd.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
             System.out.println("isSupported : " + isSupported);
